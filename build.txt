@@ -1,0 +1,3 @@
+displayName = Constant Sniping
+author = First Fractal
+version = 0.1
