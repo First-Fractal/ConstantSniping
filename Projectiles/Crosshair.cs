@@ -15,7 +15,7 @@ namespace ConstantSniping.Projectiles
             Projectile.width = 90;
             Projectile.height = 90;
             Projectile.tileCollide = false;
-            Projectile.timeLeft = 300;
+            Projectile.timeLeft = ConstantSnipingConfig.Instance.CrosshairDuration * 60;
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
             Projectile.alpha = 255;
@@ -64,7 +64,8 @@ namespace ConstantSniping.Projectiles
             if (target != null)
             {
                 Vector2 dir = new Vector2(target.position.X - Projectile.position.X, target.position.Y - Projectile.position.Y) + new Vector2(-35, -18);
-                Projectile.position += dir/10;
+                int spd = 11 - ConstantSnipingConfig.Instance.CrosshairSpeed;
+                Projectile.position += dir/spd;
             }
 
             base.AI();
@@ -88,11 +89,9 @@ namespace ConstantSniping.Projectiles
         public override void Kill(int timeLeft)
         {
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
-            int dis = 45;
-            //if (Main.netMode == NetmodeID.MultiplayerClient) { dis = 43; }
-            if (Vector2.Distance(Projectile.position, target.position) < dis)
+            if (Vector2.Distance(Projectile.position, target.position) < 45)
             {
-                target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), 99999, 0);
+                target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), ConstantSnipingConfig.Instance.CrosshairDamage, 0);
             }
             base.Kill(timeLeft);
         }

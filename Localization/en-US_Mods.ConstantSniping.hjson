@@ -1,2 +1,27 @@
 
 Projectiles.Crosshair.DisplayName: Crosshair
+
+Config: {
+	Label: Config
+	Header.GeneralOptions: General Options
+
+	CrosshairCooldown: {
+		Label: Crosshair Cooldown
+		Tooltip: Set how long it will take, in seconds, for the crosshair to spawn in.
+	}
+
+	CrosshairDuration: {
+		Label: Crosshair Duration
+		Tooltip: How long the crosshair take, in seconds, to shoot at the player. Note that this only affects crosshairs when they spawn in.
+	}
+
+	CrosshairDamage: {
+		Label: Crosshair Damage
+		Tooltip: How much damage should the crosshair do.
+	}
+
+	CrosshairSpeed: {
+		Label: Crosshair Speed
+		Tooltip: Set the speed of the crosshair. With 1 being the slowest, and 10 being the fastest.
+	}
+}
