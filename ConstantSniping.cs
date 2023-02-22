@@ -15,7 +15,7 @@ namespace ConstantSniping
     {
         int counter = 0;
         public int spawnerCounter = 0;
-        public void bomberPlaneSpawner()
+        public void CrosshairTargeting()
         {
             counter++;
             if (counter >= 60)
@@ -42,8 +42,21 @@ namespace ConstantSniping
 
         public override void PostUpdateEverything()
         {
-            bomberPlaneSpawner();
+            if (Main.netMode == NetmodeID.Server)
+            {
+                CrosshairTargeting();
+            }
             base.PostUpdateEverything();
+        }
+
+        //spawn in the npcs for singleplayer
+        public override void PostUpdateWorld()
+        {
+            if (Main.netMode == NetmodeID.SinglePlayer)
+            {
+                CrosshairTargeting();
+            }
+            base.PostUpdateWorld();
         }
     }
 }

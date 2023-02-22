@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.ID;
 
 namespace ConstantSniping.Projectiles
 {
@@ -87,7 +88,9 @@ namespace ConstantSniping.Projectiles
         public override void Kill(int timeLeft)
         {
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
-            if (Vector2.Distance(Projectile.position, target.position) < 45)
+            int dis = 45;
+            //if (Main.netMode == NetmodeID.MultiplayerClient) { dis = 43; }
+            if (Vector2.Distance(Projectile.position, target.position) < dis)
             {
                 target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), 99999, 0);
             }
