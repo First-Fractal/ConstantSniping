@@ -37,11 +37,11 @@ namespace ConstantSniping
                 CS.Talk(spawnerCounter.ToString(), Color.LightSeaGreen);
             }
 
-            if (spawnerCounter >= 5)
+            if (spawnerCounter >= 10)
             {
                 CS.Talk("Target Sighted", Color.OrangeRed);
 
-                Player target = null;
+                Player target;
                 while (true) {
                     target = Main.player[Main.rand.Next(0, Main.player.Length)];
                     if (target.active)
