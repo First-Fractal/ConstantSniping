@@ -2,13 +2,13 @@
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using Terraria.Audio;
 
 namespace ConstantSniping.Projectiles
 {
     public class Crosshair : ModProjectile
     {
         Player target;
-        ConstantSniping CS;
         public override void SetDefaults()
         {
             Projectile.width = 90;
@@ -18,12 +18,14 @@ namespace ConstantSniping.Projectiles
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
             Projectile.alpha = 255;
-
-            CS = new ConstantSniping();
             base.SetDefaults();
         }
 
-        
+        public override void OnSpawn(IEntitySource source)
+        {
+            SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/cock"));
+            base.OnSpawn(source);
+        }
 
         public override void AI()
         {
@@ -64,8 +66,6 @@ namespace ConstantSniping.Projectiles
                 Projectile.position += dir/10;
             }
 
-            CS.Talk(Projectile.timeLeft.ToString(), Color.OldLace);
-
             base.AI();
         }
 
@@ -86,7 +86,7 @@ namespace ConstantSniping.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            CS.Talk("insert a gunshot here", Color.Orange);
+            SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
             if (Vector2.Distance(Projectile.position, target.position) < 45)
             {
                 target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), 99999, 0);

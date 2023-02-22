@@ -10,23 +10,11 @@ namespace ConstantSniping
 {
 	public class ConstantSniping : Mod
 	{
-        public void Talk(string message, Color color)
-        {
-            if (Main.netMode == NetmodeID.SinglePlayer)
-            {
-                Main.NewText(message, color);
-            }
-            else
-            {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), color);
-            }
-        }
     }
     public class ConstantSnipingSystem : ModSystem
     {
         int counter = 0;
         public int spawnerCounter = 0;
-        ConstantSniping CS = new ConstantSniping();
         public void bomberPlaneSpawner()
         {
             counter++;
@@ -34,13 +22,10 @@ namespace ConstantSniping
             {
                 spawnerCounter++;
                 counter = 0;
-                CS.Talk(spawnerCounter.ToString(), Color.LightSeaGreen);
             }
 
             if (spawnerCounter >= 10)
             {
-                CS.Talk("Target Sighted", Color.OrangeRed);
-
                 Player target;
                 while (true) {
                     target = Main.player[Main.rand.Next(0, Main.player.Length)];
@@ -50,9 +35,7 @@ namespace ConstantSniping
                     }
                 }
 
-                CS.Talk(target.position.ToString(), Color.OliveDrab);
                 Projectile.NewProjectile(target.GetSource_FromThis(), target.position, Vector2.Zero, ModContent.ProjectileType<Crosshair>(), 0, 0);
-
                 spawnerCounter = 0;
             }
         }
