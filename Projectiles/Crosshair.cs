@@ -86,14 +86,14 @@ namespace ConstantSniping.Projectiles
             return false;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
             if (Vector2.Distance(Projectile.position, target.position) < 45)
             {
                 target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), ConstantSnipingConfig.Instance.CrosshairDamage, 0);
             }
-            base.Kill(timeLeft);
+            base.OnKill(timeLeft);
         }
     }
 }

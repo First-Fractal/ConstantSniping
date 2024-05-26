@@ -61,32 +61,25 @@ namespace ConstantSniping
         }
     }
 
-    [Label("$Mods.ConstantSniping.Config.Label")]
     public class ConstantSnipingConfig : ModConfig
     {
         public override ConfigScope Mode => ConfigScope.ServerSide;
         public static ConstantSnipingConfig Instance;
 
-        [Header("$Mods.ConstantSniping.Config.Header.GeneralOptions")]
+        [Header("GeneralOptions")]
 
-        [Label("$Mods.ConstantSniping.Config.CrosshairCooldown.Label")]
-        [Tooltip("$Mods.ConstantSniping.Config.CrosshairCooldown.Tooltip")]
         [DefaultValue(60)]
         public int CrosshairCooldown;
 
-        [Label("$Mods.ConstantSniping.Config.CrosshairDuration.Label")]
-        [Tooltip("$Mods.ConstantSniping.Config.CrosshairDuration.Tooltip")]
+
         [DefaultValue(5)]
         public int CrosshairDuration;
 
-        [Label("$Mods.ConstantSniping.Config.CrosshairDamage.Label")]
-        [Tooltip("$Mods.ConstantSniping.Config.CrosshairDamage.Tooltip")]
+
         [DefaultValue(99999)]
         [Range(1, 99999)]
         public int CrosshairDamage;
 
-        [Label("$Mods.ConstantSniping.Config.CrosshairSpeed.Label")]
-        [Tooltip("$Mods.ConstantSniping.Config.CrosshairSpeed.Tooltip")]
         [DefaultValue(1)]
         [Range(1, 10)]
         [DrawTicks()]
