@@ -24,5 +24,15 @@ Configs: {
 			Label: Crosshair Cooldown
 			Tooltip: Set how long it will take, in seconds, for the crosshair to spawn in.
 		}
+
+		CrosshairCooldownBoss: {
+			Label: Crosshair Cooldown Boss
+			Tooltip: ""
+		}
+
+		CrosshairDurationBoss: {
+			Label: Crosshair Duration Boss
+			Tooltip: ""
+		}
 	}
 }

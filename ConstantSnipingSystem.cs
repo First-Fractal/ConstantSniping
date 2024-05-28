@@ -25,7 +25,9 @@ namespace ConstantSniping
             }
 
             //if it's time to spawn in, then spawn it in
-            if (spawnerCounter >= ConstantSnipingConfig.Instance.CrosshairCooldown)
+            if (spawnerCounter >= ConstantSnipingConfig.Instance.CrosshairCooldown || 
+                (ffFunc.IsBossAlive() && spawnerCounter >= ConstantSnipingConfig.Instance.CrosshairCooldownBoss))
+
             {
                 //look for a target that is active and not dead
                 Player target;

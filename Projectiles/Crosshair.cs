@@ -16,14 +16,20 @@ namespace ConstantSniping.Projectiles
             Projectile.width = 90;
             Projectile.height = 90;
             Projectile.tileCollide = false;
-            Projectile.timeLeft = ConstantSnipingConfig.Instance.CrosshairDuration * 60;
+            Projectile.timeLeft = ffFunc.TimeToTick(ConstantSnipingConfig.Instance.CrosshairDuration);
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
             Projectile.alpha = 255;
             base.SetDefaults();
+
+            //change the time left if a boss is alive
+            if (ffFunc.IsBossAlive())
+            {
+                Projectile.timeLeft = ffFunc.TimeToTick(ConstantSnipingConfig.Instance.CrosshairDurationBoss);
+            }
         }
 
-        //play the cocking sfx when spawinging in
+        //play the cocking sfx when spawing in
         public override void OnSpawn(IEntitySource source)
         {
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/cock"));

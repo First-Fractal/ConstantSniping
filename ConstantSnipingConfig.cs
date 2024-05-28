@@ -13,9 +13,14 @@ namespace ConstantSniping
         [DefaultValue(60)]
         public int CrosshairCooldown;
 
-
         [DefaultValue(5)]
         public int CrosshairDuration;
+
+        [DefaultValue(20)]
+        public int CrosshairCooldownBoss;
+
+        [DefaultValue(10)]
+        public int CrosshairDurationBoss;
 
 
         [DefaultValue(99999)]
