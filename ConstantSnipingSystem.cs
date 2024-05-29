@@ -34,7 +34,7 @@ namespace ConstantSniping
                 while (true)
                 {
                     target = Main.player[Main.rand.Next(0, Main.player.Length)];
-                    if (target.active && !target.dead)
+                    if (target.active)
                     {
                         break;
                     }

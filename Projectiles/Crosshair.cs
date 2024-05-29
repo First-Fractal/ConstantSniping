@@ -117,7 +117,7 @@ namespace ConstantSniping.Projectiles
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
 
             //if the target is inside the crosshair, then shoot them
-            if (Vector2.Distance(Projectile.position, target.position) < 45)
+            if (target != null && Vector2.Distance(Projectile.position, target.position) < 45)
             {
                 //deal the damage torwards the player
                 target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), ConstantSnipingConfig.Instance.CrosshairDamage, 0);
