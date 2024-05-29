@@ -28,9 +28,10 @@ namespace ConstantSniping
         public int CrosshairDamage;
 
         [DefaultValue(1)]
-        [Range(1, 10)]
+        [Range(0.1f, 3f)]
         [DrawTicks()]
+        [Increment(0.25f)]
         [Slider()]
-        public int CrosshairSpeed;
+        public float CrosshairSpeedMulti;
     }
 }

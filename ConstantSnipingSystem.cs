@@ -12,7 +12,6 @@ namespace ConstantSniping
         int counter = 0;
         public int spawnerCounter = 0;
 
-
         //function for spawning in the crosshiar
         public void CrosshairTargeting()
         {

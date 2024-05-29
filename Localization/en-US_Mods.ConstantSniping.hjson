@@ -34,5 +34,10 @@ Configs: {
 			Label: Crosshair Duration Boss
 			Tooltip: ""
 		}
+
+		CrosshairClampRange: {
+			Label: Crosshair Clamp Range
+			Tooltip: ""
+		}
 	}
 }
