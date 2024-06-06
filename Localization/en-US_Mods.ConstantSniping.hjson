@@ -35,8 +35,8 @@ Configs: {
 			Tooltip: ""
 		}
 
-		CrosshairClampRange: {
-			Label: Crosshair Clamp Range
+		CrosshairSpeedMulti: {
+			Label: Crosshair Speed Multi
 			Tooltip: ""
 		}
 	}

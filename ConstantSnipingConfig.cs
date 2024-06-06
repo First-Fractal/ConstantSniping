@@ -10,16 +10,16 @@ namespace ConstantSniping
 
         [Header("GeneralOptions")]
 
-        [DefaultValue(60)]
+        [DefaultValue(30)]
         public int CrosshairCooldown;
 
-        [DefaultValue(5)]
+        [DefaultValue(8)]
         public int CrosshairDuration;
 
-        [DefaultValue(20)]
+        [DefaultValue(5)]
         public int CrosshairCooldownBoss;
 
-        [DefaultValue(10)]
+        [DefaultValue(3)]
         public int CrosshairDurationBoss;
 
 
@@ -28,7 +28,7 @@ namespace ConstantSniping
         public int CrosshairDamage;
 
         [DefaultValue(1)]
-        [Range(0.1f, 3f)]
+        [Range(0.1f, 2f)]
         [DrawTicks()]
         [Increment(0.25f)]
         [Slider()]

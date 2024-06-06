@@ -3,11 +3,6 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.ID;
-using System;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ConstantSniping.Projectiles
 {
