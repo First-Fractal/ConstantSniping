@@ -57,7 +57,6 @@ namespace ConstantSniping.Projectiles
             {
                 Projectile.alpha-=3;
             }
-
             //reset the target
             target = null;
 
@@ -113,7 +112,6 @@ namespace ConstantSniping.Projectiles
                 Projectile.position.Y = MathHelper.Clamp(Projectile.position.Y, Y - rad, Y + rad);
             }
 
-
             base.AI();
         }
 
@@ -140,11 +138,15 @@ namespace ConstantSniping.Projectiles
             //make it player the shooting sfx when the time left is up
             SoundEngine.PlaySound(new SoundStyle("ConstantSniping/SFX/shoot"));
 
-            //if the target is inside the crosshair, then shoot them
-            if (target != null && Vector2.Distance(Projectile.position, target.position) < 45)
+            //check if the target isnt null
+            if (target != null)
             {
-                //deal the damage torwards the player that they cant dodge
-                target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), ConstantSnipingConfig.Instance.CrosshairDamage, 0, dodgeable:false);
+                //if the target is inside the crosshair, then shoot them
+                if (Projectile.Hitbox.Intersects(target.Hitbox))
+                {
+                    //deal the damage torwards the player that they cant dodge
+                    target.Hurt(PlayerDeathReason.ByProjectile(target.whoAmI, Projectile.whoAmI), ConstantSnipingConfig.Instance.CrosshairDamage, 0, dodgeable:false);
+                }
             }
 
             //run the vanilla code
