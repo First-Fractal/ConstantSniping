@@ -12,8 +12,10 @@ sound effects for the mod was provided by Gfx Sounds.
 https://gfxsounds.com/free-sound-effects
 
 # Steam Workshop
-[Download it here](https://youtu.be/dQw4w9WgXcQ)
+[Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=3265309074)
 
-# Change Log
+v 1.1:
+Fixed a bug where the crosshair wasn't accurate when shooting the player.
+
 v 1.0:
 Relased the mod
