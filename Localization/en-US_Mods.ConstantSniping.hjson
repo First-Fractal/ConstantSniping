@@ -27,17 +27,17 @@ Configs: {
 
 		CrosshairCooldownBoss: {
 			Label: Crosshair Cooldown Boss
-			Tooltip: ""
+			Tooltip: Set how long it will take, in seconds, for the crosshair to spawn in during a boss fight.
 		}
 
 		CrosshairDurationBoss: {
 			Label: Crosshair Duration Boss
-			Tooltip: ""
+			Tooltip: How long the crosshair take, in seconds, to shoot at the player during a boss fight.
 		}
 
 		CrosshairSpeedMulti: {
 			Label: Crosshair Speed Multi
-			Tooltip: ""
+			Tooltip: Modify the speed of the crosshair.
 		}
 	}
 }
