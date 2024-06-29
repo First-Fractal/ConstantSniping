@@ -39,5 +39,10 @@ Configs: {
 			Label: Crosshair Speed Multi
 			Tooltip: Modify the speed of the crosshair.
 		}
+
+		BrightCrosshair: {
+			Label: Bright Crosshair
+			Tooltip: Should the crosshair always be visible, regardless of lighting?
+		}
 	}
 }

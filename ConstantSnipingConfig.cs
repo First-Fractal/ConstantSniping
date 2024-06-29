@@ -27,6 +27,9 @@ namespace ConstantSniping
         [Range(1, 99999)]
         public int CrosshairDamage;
 
+        [DefaultValue(true)]
+        public bool BrightCrosshair;
+
         [DefaultValue(1)]
         [Range(0.1f, 2f)]
         [DrawTicks()]

@@ -50,6 +50,13 @@ namespace ConstantSniping.Projectiles
             else return 2.5f;
         }
 
+        public override Color? GetAlpha(Color lightColor)
+        {
+            //make it always be bright if the player allow it inthe config
+            if (ConstantSnipingConfig.Instance.BrightCrosshair) return Color.White;
+            else  return base.GetAlpha(lightColor);
+        }
+
         public override void AI()
         {
             //make it fade in
