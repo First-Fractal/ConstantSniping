@@ -10,6 +10,9 @@ namespace ConstantSniping.Projectiles
     {
         //variable for tracking the target
         Player target = null;
+
+        //variable for tracking when the blink the crosshair
+        int blinkAmount = 20;
         public override void SetDefaults()
         {
             //make the  projectile invincible with custom ai and infinate peneration
@@ -59,11 +62,26 @@ namespace ConstantSniping.Projectiles
 
         public override void AI()
         {
-            //make it fade in
-            if (Projectile.alpha > 0)
+            if (Projectile.timeLeft > ffFunc.TimeToTick(3))
             {
-                Projectile.alpha-=3;
+                //make it fade in
+                if (Projectile.alpha > 0)
+                {
+                    Projectile.alpha-=6;
+                }
+            } else
+            {
+                if (Projectile.alpha >= 255) blinkAmount *= -1;
+                else if (Projectile.alpha <= 0) blinkAmount *= -1;
+
+                Projectile.alpha += blinkAmount;
+
+                ffFunc.Talk(Projectile.alpha.ToString(), Color.Orange);
+                ffFunc.Talk(blinkAmount.ToString(), Color.Aqua);
             }
+
+            Projectile.alpha = (int)MathHelper.Clamp(Projectile.alpha, 0, 255);
+
             //reset the target
             target = null;
 
