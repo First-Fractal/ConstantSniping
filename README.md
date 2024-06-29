@@ -14,6 +14,10 @@ https://gfxsounds.com/free-sound-effects
 # Steam Workshop
 [Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=3265309074)
 
+# Change Log
+v 1.2: 
+added a config option to make the crosshair always visible, and made it blink before shooting
+
 v 1.1:
 Fixed a bug where the crosshair wasn't accurate when shooting the player.
 
