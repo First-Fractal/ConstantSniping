@@ -11,8 +11,9 @@ namespace ConstantSniping.Projectiles
         //variable for tracking the target
         Player target = null;
 
-        //variable for tracking when the blink the crosshair
-        int blinkAmount = 20;
+        //variable for tracking when to blink the crosshair
+        int blinkAmount = 6;
+        int blinkDir = 1;
         public override void SetDefaults()
         {
             //make the  projectile invincible with custom ai and infinate peneration
@@ -62,6 +63,7 @@ namespace ConstantSniping.Projectiles
 
         public override void AI()
         {
+            //check if it's time to do the blinking
             if (Projectile.timeLeft > ffFunc.TimeToTick(3))
             {
                 //make it fade in
@@ -71,15 +73,21 @@ namespace ConstantSniping.Projectiles
                 }
             } else
             {
-                if (Projectile.alpha >= 255) blinkAmount *= -1;
-                else if (Projectile.alpha <= 0) blinkAmount *= -1;
+                //set the blink direction
+                if (Projectile.alpha >= 255) blinkDir = -1;
+                else if (Projectile.alpha <= 0) blinkDir = 1;
 
-                Projectile.alpha += blinkAmount;
+                //make it blink fade amount increase every 20 frames
+                if (Projectile.timeLeft % 20 == 0) blinkAmount+=6;
+
+                //combine the blink fade amount and blink direction into the alpha
+                Projectile.alpha += blinkAmount*blinkDir;
 
                 ffFunc.Talk(Projectile.alpha.ToString(), Color.Orange);
-                ffFunc.Talk(blinkAmount.ToString(), Color.Aqua);
+                ffFunc.Talk((blinkAmount * blinkDir).ToString(), Color.Aqua);
             }
 
+            //keep the alpha between 0 and 255
             Projectile.alpha = (int)MathHelper.Clamp(Projectile.alpha, 0, 255);
 
             //reset the target
