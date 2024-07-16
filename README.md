@@ -15,6 +15,9 @@ https://gfxsounds.com/free-sound-effects
 [Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=3265309074)
 
 # Change Log
+v 1.2.1: 
+Forgot to remove debug messages
+
 v 1.2: 
 added a config option to make the crosshair always visible, and made it blink before shooting
 

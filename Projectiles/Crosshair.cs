@@ -82,9 +82,6 @@ namespace ConstantSniping.Projectiles
 
                 //combine the blink fade amount and blink direction into the alpha
                 Projectile.alpha += blinkAmount*blinkDir;
-
-                ffFunc.Talk(Projectile.alpha.ToString(), Color.Orange);
-                ffFunc.Talk((blinkAmount * blinkDir).ToString(), Color.Aqua);
             }
 
             //keep the alpha between 0 and 255
