@@ -12,7 +12,7 @@ https://gfxsounds.com/free-sound-effects
 Change Log
 ---------------------------------------
 v 1.2.1: 
-Forgot to remove debug messages
+Forgot to remove debug messages (I FUCKING FORGOT TO UPLOAD THIS FOR 7 MONTHS, FOR FUCK SAKES)
 
 v 1.2: 
 added a config option to make the crosshair always visible, and made it blink before shooting
